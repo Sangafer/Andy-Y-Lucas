@@ -1,0 +1,322 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+
+:root{
+    --bg-color: #f4ebd9;
+    --primary-color:rgb(255, 140, 0);
+    --secondary-color: #a67c52;
+    --font-color: #1a1612;
+    --nav-color:#faf5ef;
+
+    --principal-font: "Playfair Display", serif;
+    --secondary-font:"Manrope",sans-serif
+}
+
+body{
+    background-color: var(--bg-color);
+    font-family: var(--secondary-font);
+    color: var(--font-color);
+    margin: 0;
+    padding: 0;
+    max-height: 100svh;
+    scroll-behavior: smooth;
+}
+
+h1,h2,h3{
+    font-family: var(--principal-font);
+}
+
+.nav-bar{
+    display: flex;
+    padding: 12px;
+    background-color:var(--nav-color) ;
+    border-bottom: 1px solid var(--secondary-color);
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+.nav-bar h1{
+    font-size: 2rem;
+    margin-left: 24px;
+}
+
+.enlaces{
+    list-style: none;
+    display: flex;
+    padding: 12px;
+    font-size: 20px;
+}
+
+.list-enlaces{
+    padding:4px 20px;
+}
+
+.list-enlaces a{
+    display: flex;
+    text-decoration:none;
+    color: var(--font-color);
+    border-bottom: 1px solid var(--nav-color);
+    transition: all 0.3s ease;
+}
+
+.list-enlaces a:hover{
+    border-bottom: 1px solid var(--font-color);
+    font-weight: 600;
+    transform: scale(1.1);
+}
+
+.list-enlaces a:focus{
+    border-bottom: 1px solid var(--font-color);
+    font-weight: 600;
+    transform: scale(1.1);
+}
+
+.bienvenida{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 60px;
+}
+
+.bienvenida img{
+    padding:5px ;
+    border-radius: 12px;
+    border: 2px solid var(--secondary-color);
+    flex: 1.2;
+    object-fit: cover;
+    max-height: 500px;
+    max-width: 800px;
+    filter: grayscale(1);
+    object-position: center 80%;
+    transition: 0.3s ease;
+    animation: aparecer 1.5s ease-out;
+}
+
+.bienvenida img:hover{
+    transform: scale(1.05);
+    filter: grayscale(0);
+}
+
+.bnv-texto{
+    padding: 24px;
+    flex: 1;
+    font-size: 30px;
+    animation: aparecer 1s ease-out;
+}
+
+.contenedor-tarjetas{
+    display:flex;
+    gap: 24px;
+}
+
+.tarjeta-galeria{
+    flex: 1;
+}
+
+.tarjetas-secundarias{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.tarjeta-galeria, .tarjeta-sorpresa, .tarjeta-cita{
+    background-color: var(--nav-color);
+    border-radius: 16px;
+    padding: 24px;
+    flex: 1;
+}
+
+.imagen-contenedor img{
+    width: 100%;
+    filter: grayscale(1);
+    border-radius: 12px;
+}
+.imagen-contenedor{
+    position: relative;
+}
+
+.etiqueta{
+    color:var(--primary-color) ;
+    background-color: var(--nav-color);
+    border-radius: 12px;
+    font-weight: 600;
+    padding: 4px 12px;
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    z-index: 2;
+}
+
+.link{
+    text-decoration: none;
+    color: var(--primary-color);
+    background-color: var(--bg-color);
+    padding: 5px 12px;
+    border-radius: 12px;
+    border: 1px solid var(--secondary-color);
+    display: inline-block;
+    transition: all 0.3s ease;
+}
+
+.link:hover{
+    background-color: var(--primary-color);
+    color: var(--bg-color);
+}
+
+.bienvenida .link{
+    background-color: var(--nav-color);
+}
+
+.bienvenida .link:hover{
+    background-color: var(--secondary-color);
+    border: 1px solid var(--primary-color);
+}
+
+.tarjeta-sorpresa{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.seccion-regalo{
+    padding: 60px;
+}
+
+.icono{
+    font-size: 40px;
+    margin-bottom: 16px;
+}
+
+@keyframes aparecer{
+    0%{
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100%{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.contenedor-propuestas{
+    display: flex;
+    gap: 24px;
+}
+
+.plan{
+    width: 100%;
+    border-radius:12px ;
+    object-position: center 80%;
+    object-fit: cover;
+    aspect-ratio: 16/9;
+}
+
+.citas{
+    padding: 60px;
+}
+
+.tarjeta-cita{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    transition: all 0.3s ease;
+    animation: aparecer 1s ease-out;
+}
+
+.tarjeta-cita:hover{
+    transform: scale(1.05);
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.2);
+}
+
+.descripcion{
+    color: var(--secondary-color);
+}
+
+.form-cita{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: var(--nav-color);
+    padding:12px 24px ;
+    border-radius: 12px;
+    margin-top: 24px;
+    gap: 12px;
+    animation: aparecer 1s ease-out;
+}
+
+.input-fecha{
+    border: 2px solid var(--secondary-color);
+    border-radius: 12px;
+    padding: 16px;
+    color: var(--font-color);
+    font-size: 16px;
+    outline: none;
+}
+
+.input-fecha:focus{
+    outline: none;
+    border-color: var(--primary-color);
+}
+
+.input-tipo-cita{
+    border: none;
+    padding: 16px;
+    position: relative;
+    background-color: var(--nav-color);
+    border-bottom: 2px solid var(--secondary-color);
+    font-size: 16px;
+    outline: none;
+}
+
+.input-tipo-cita:focus{
+    outline: none;
+    border-bottom-color: var(--primary-color);
+}
+
+.campo-input{
+    position: relative;
+}
+
+.input-fecha:focus + .input-label,
+.input-fecha:not(:placeholder-shown) + .input-label,
+.input-tipo-cita:focus + .input-label,
+.input-tipo-cita:not(:placeholder-shown) + .input-label {
+    /* Se levanta al hacer focus O cuando ya hay un valor introducido */
+    transform: translateY(-20px);
+    font-size: 12px;
+}
+
+.input-label{
+    position: absolute;
+    transition: 0.3s ease;
+    top: 15px;
+    left: 15px;
+    pointer-events: none;
+}
+
+.btn-form{
+    cursor: pointer;
+    padding: 10px 24px;
+    border-radius: 12px;
+    border: 2px solid var(--secondary-color);
+    font-family: var(--secondary-font);
+    font-weight: 600;
+    background-color:var(--bg-color);
+    color: var(--primary-color);
+    margin-top: 5px;
+    font-size: large;
+    transition: 0.3s ease;
+}
+
+.btn-form:hover{
+    transform: scale(1.1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    background-color: var(--primary-color);
+    color: var(--nav-color);
+}
