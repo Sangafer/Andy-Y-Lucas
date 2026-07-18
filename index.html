@@ -155,7 +155,15 @@
         <form action="https://formsubmit.co/sngafer@gmail.com" class="form-cita" method="post">
             <div class="calendario">
                 <div class="cabecera-calendario">
-                    <h3 class="month">Mes</h3>
+                    <div class="mes-btn">
+                        <button class="btn-calendar" type="button" id="last-month">
+                            <img src="assets/recursos/flecha-izquierda.png">
+                        </button>
+                        <h3 class="month">Mes</h3>
+                        <button class="btn-calendar" type="button">
+                            <img src="assets/recursos/flecha-DERECHA.png" id="next-month">
+                        </button>
+                    </div>
                     <h3 class="year">0</h3>
                 </div>
                 <div class="week">
@@ -171,6 +179,7 @@
 
                 </div>
             </div>
+            <input type="hidden" name="Fecha" id="fecha-seleccionada">
             <div class="datos-form">
                 <div class="selector-tiempo">
                     <div class="bloque-tiempo">

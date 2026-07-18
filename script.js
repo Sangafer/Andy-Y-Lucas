@@ -6,7 +6,12 @@ const ticketVip = document.querySelector('.ticket-vip')
 const botonNota= document.querySelector('.link-nota')
 const contenidoNota= document.querySelector('.nota')
 
-// 2. Función para "apagar" todas las pantallas
+let mesActual=new Date().getMonth();
+let añoActual=new Date().getFullYear();
+
+const botonAtras=document.querySelector('#last-month');
+const botonSiguiente=document.querySelector('#next-month');
+
 function ocultarSecciones() {
     secciones.forEach(seccion => {
         seccion.style.display = 'none';
@@ -14,11 +19,15 @@ function ocultarSecciones() {
 }
 
 function renderCalendar(){
-    const año = new Date().getFullYear();
-    const mes = new Date().getMonth();
+    const año = añoActual;
+    const mes = mesActual;
 
     const diasEnMeses=new Date(año, mes+1, 0).getDate();
-    const primerDiaDelMes=new Date(año, mes, 1).getDay();
+    let primerDiaDelMes=new Date(año, mes, 1).getDay()-1;
+
+    if(primerDiaDelMes===-1){
+        primerDiaDelMes=6
+    }
 
     const contenedorDias=document.querySelector('.days-number');
     const mesHTML= document.querySelector('.month');
@@ -40,9 +49,46 @@ function renderCalendar(){
         const diaDiv=document.createElement('div');
         diaDiv.innerHTML=i;
         contenedorDias.appendChild(diaDiv)
+        if(i===new Date().getDate() && mes===new Date().getMonth() && año===new Date().getFullYear()){
+            diaDiv.classList.add('hoy')
+        }
+
+        if(i === 31 && mes === 6){
+        diaDiv.classList.add('aniversario');
+        }
+
+        diaDiv.addEventListener("click", () => {
+          const diaPrevio = document.querySelector(".seleccionado");
+          if (diaPrevio) {
+            diaPrevio.classList.remove("seleccionado");
+          }
+          diaDiv.classList.add("seleccionado");
+          const inputFecha=document.querySelector('#fecha-seleccionada')
+          inputFecha.value = `${i}/${mesActual + 1}/${añoActual}`;
+        });
     }
 
 }
+
+botonAtras.addEventListener('click', ()=>{
+    if(mesActual===0){
+        mesActual=11;
+        añoActual=añoActual-1
+    }else{
+        mesActual=mesActual-1
+    }
+    renderCalendar()
+})
+
+botonSiguiente.addEventListener('click', ()=>{
+    if(mesActual===11){
+        mesActual=0;
+        añoActual=añoActual+1
+    }else{
+        mesActual=mesActual+1
+    }
+    renderCalendar()
+})
 
 flatpickr("#fecha-cita",{
     enableTime:true,
