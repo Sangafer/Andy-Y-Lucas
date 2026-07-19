@@ -698,4 +698,38 @@ h1,h2,h3{
         border-bottom: 3px dashed white;
         border-right: none;
     }
+
+    .form-cita{
+        flex-direction: column;
+        gap: 24px;
+    }
+    .contenedor-propuestas{
+        flex-direction: column;
+    }
+    .bienvenida{
+        flex-direction: column;
+    }
+    .contenedor-tarjetas{
+        flex-direction: column;
+    }
+
+    .linea-tiempo::before{
+        left: 20px;
+    }
+    .hito-derecha,.hito-izquierda{
+        width: 100%;
+        left: 0;
+        text-align: left;
+        padding-left:50px ;
+        padding-right:20px ;
+        margin: 24px 0;
+    }
+
+    .hito-izquierda .hito-punto, .hito-derecha .hito-punto{
+        left: 12px;
+    }
+
+    .hito-final{
+        margin: 24px 0;
+    }
 }

@@ -1,6 +1,8 @@
-const enlaces = document.querySelectorAll('.list-enlaces a');
+const enlaces = document.querySelectorAll('.list-enlaces a, .link');
 const secciones = document.querySelectorAll('section');
+const formCita= document.querySelector('.form-cita')
 const botonSorpresa = document.querySelector('#btn-form')
+const formulariosPlanes=document.querySelectorAll('.tarjeta-cita form')
 const ticketVip = document.querySelector('.ticket-vip')
 
 const botonNota= document.querySelector('.link-nota')
@@ -90,6 +92,21 @@ botonSiguiente.addEventListener('click', ()=>{
     renderCalendar()
 })
 
+formCita.addEventListener('submit',(evento)=>{
+    evento.preventDefault()
+    const botonEnviar=formCita.querySelector('.btn-form')
+    botonEnviar.innerHTML="Propuesta enviada"
+
+    botonEnviar.disabled=true;
+
+    const datos=new FormData(formCita)
+    fetch('https://formsubmit.co/ajax/sngafer@gmail.com',{
+        method:'POST',
+        body:datos
+    })
+
+})
+
 flatpickr("#fecha-cita",{
     enableTime:true,
     dateFormat: "d/m/Y H:i",
@@ -121,6 +138,22 @@ enlaces.forEach(enlace => {
     });
 });
 
+formulariosPlanes.forEach((boton) => {
+  boton.addEventListener("submit", (evento) => {
+    evento.preventDefault();
+    const botonEnviar = boton.querySelector(".link");
+    botonEnviar.innerHTML = "Propuesta enviada";
+
+    botonEnviar.disabled = true;
+
+    const datos = new FormData(boton);
+    fetch("https://formsubmit.co/ajax/sngafer@gmail.com", {
+      method: "POST",
+      body: datos,
+    });
+  });
+});
+
 botonSorpresa.addEventListener('click', function(){
     botonSorpresa.style.display = 'none';
     ticketVip.style.display = 'flex';
@@ -134,4 +167,4 @@ botonNota.addEventListener('click', function(evento){
 
 ocultarSecciones();
 renderCalendar();
-document.querySelector('#citas').style.display = 'block';
+document.querySelector('#nuestra-historia').style.display = 'block';
