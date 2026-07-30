@@ -224,7 +224,7 @@ h1,h2,h3{
     position: absolute;
     top: 16px;
     right: 16px;
-    z-index: 2;
+    z-index: 1;
 }
 
 .link{
@@ -734,6 +734,28 @@ h1,h2,h3{
 }
 
 @media (max-width: 768px){
+    .nav-bar{
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .nav-bar h1{
+        margin-left: 0;
+        font-size: 1.5rem;
+    }
+
+    .enlaces{
+        padding: 0;
+        flex-wrap: wrap;
+        font-size: 16px;
+        gap: 5px;
+    }
+
+    .list-enlaces{
+        padding: 4px 10px;
+    }
+
     .ticket-vip{
         flex-direction: column;
     }
@@ -746,6 +768,17 @@ h1,h2,h3{
     .form-cita{
         flex-direction: column;
         gap: 24px;
+        padding: 12px;
+    }
+
+    .calendario{
+        width: 100%;
+        box-sizing: border-box;
+        padding: 10px;
+    }
+
+    .week, .days-number{
+        gap: 5px;
     }
     .contenedor-propuestas{
         flex-direction: column;
