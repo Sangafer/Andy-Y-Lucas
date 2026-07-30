@@ -626,13 +626,42 @@ h1,h2,h3{
     transform: scale(1.03);
 }
 
+.btn-sorpresa{
+    background-color: var(--nav-color);
+    color: var(--bg-ticket);
+    font-family: var(--secondary-font);
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    padding: 16px 32px;
+    border-radius: 30px;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+}
+
+.btn-sorpresa:hover{
+    background-color: var(--primary-color);
+    color: var(--nav-color);
+    transform: scale(1.05);
+    box-shadow: 0 6px 25px rgba(250, 27, 2, 0.5);
+}
+
 .regalo-sorpresa{
     padding: 60px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    text-align: center;
     min-height: 80vh;
+
+   background: linear-gradient(135deg, #15131e 9%, #3e1419 37%, #5b1515 54%, #881710 71%, #fa1b02 100%);
+   border-top: 2px solid var(--secondary-color);
+   border-bottom: 2px solid var(--secondary-color);
+   color: var(--nav-color);
 }
 
 .ticket-vip{
@@ -644,7 +673,7 @@ h1,h2,h3{
     margin: 0 auto;
     overflow: hidden;
     font-family: var(--secondary-font);
-    animation: aparecer 2s ease;
+    animation: caidaRebote 0.8s ease-in;
 }
 
 .ticket-cabecera{
@@ -687,6 +716,21 @@ h1,h2,h3{
     font-weight: bold;
     padding: 4px 12px;
     border-radius: 20px;
+}
+
+@keyframes caidaRebote{
+    0%{
+        transform: translateY(-300px);
+    }
+    60%{
+        transform: translateY(0) scale(1.1, 0.9);
+    }
+    80%{
+        transform: translateY(-20px);
+    }
+    100%{
+        transform: translateY(0);
+    }
 }
 
 @media (max-width: 768px){

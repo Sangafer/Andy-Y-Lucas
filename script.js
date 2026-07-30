@@ -1,7 +1,7 @@
 const enlaces = document.querySelectorAll('.list-enlaces a, .link');
 const secciones = document.querySelectorAll('section');
 const formCita= document.querySelector('.form-cita')
-const botonSorpresa = document.querySelector('#btn-form')
+const botonSorpresa = document.querySelector('.btn-sorpresa')
 const formulariosPlanes=document.querySelectorAll('.tarjeta-cita form')
 const ticketVip = document.querySelector('.ticket-vip')
 
@@ -133,6 +133,7 @@ enlaces.forEach(enlace => {
             const seccionAMostrar = document.querySelector(destino);
             if (seccionAMostrar) {
                 seccionAMostrar.style.display = 'block';
+                window.scrollTo({ top: 0, behavior: 'smooth' });
             }
         }
     });
@@ -167,4 +168,4 @@ botonNota.addEventListener('click', function(evento){
 
 ocultarSecciones();
 renderCalendar();
-document.querySelector('#nuestra-historia').style.display = 'block';
+document.querySelector('#inicio').style.display = 'block';
